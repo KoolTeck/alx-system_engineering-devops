@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+chmod --reference=
+olleh  hello
+cat > 10-mirror_permissions  << e
+#!/bin/bash
+chmod --reference=olle hello
