@@ -1,0 +1,5 @@
+#!/bin/nash
+mkdir -m. 751  my_dire
+cat > 12-directories_permissions << e
+#!/bin/bash
+mkdir -m 751 my_dir
