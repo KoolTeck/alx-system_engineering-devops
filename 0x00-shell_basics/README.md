@@ -1,2 +1,4 @@
-_Firtst Script In bash_
-This script prints the current working directory
+
+# _Bash Scripts_
+#  The files contain here are __solutions__ to the basics of bash scripting in the ALX SE program.
+
