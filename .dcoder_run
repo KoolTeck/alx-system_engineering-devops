@@ -1,2 +1,4 @@
-# bash commands are available along with other basic linux commands.
+# bash commands are available along with other basic linux co
 git add .
+git commit -m "updates"
+git push
