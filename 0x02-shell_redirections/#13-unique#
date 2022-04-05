@@ -1,0 +1,2 @@
+#!/bin/bash
+echo -e 'Javascript\nJava\nJs\nJava\nJs\nJavascript\nC\nC++\nC\nC++\nGo\nRuby' | sort | uniq 
