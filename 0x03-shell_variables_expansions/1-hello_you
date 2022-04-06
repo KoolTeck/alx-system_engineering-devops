@@ -1,2 +1,2 @@
 #!/bin/bash
-id -un | printf "hello "
+ printf "hello %s" $USER 
