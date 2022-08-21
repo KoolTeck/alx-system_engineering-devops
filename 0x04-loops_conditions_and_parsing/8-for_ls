@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2154
+# shellcheck disable=SC2001
 # displays: The content of the current directory In a list format
 # Where only the part of the name after the first
 #+ dash is displayed
 
 for list in *;
 do
-    echo "$list" | sed "${s/.*-//}"
+    echo "$list" | sed s/'.*-'//
 done    
