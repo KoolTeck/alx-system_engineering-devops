@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# creates a new RSA public/private key
+ssh-keygen -t rsa -b 4096 -f school -N betty
