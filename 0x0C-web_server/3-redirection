@@ -6,6 +6,13 @@ sudo chown -R "$USER":"$USER" /var/www/html/
 sudo service nginx start
 echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
 sudo ufw allow 'Nginx HTTP'
-replace="rewrite \^\/redirect_me\$ https://www.google.com permanent;\n"
-sudo sed -i  "s~# pass.*~$replace~"  /etc/nginx/sites-enabled/default
+sudo chown -R "$USER":"$USER" /etc/nginx/
+echo "server {
+    listen 80;
+    listen [::]:80 default_server;
+    root   /etc/nginx/html;
+    index  index.html index.htm;
+    rewrite ^/redirect_me\$ https://wwww.google.com permanent;
+}" | tee /etc/nginx/sites-available/default
+
 sudo service nginx restart
