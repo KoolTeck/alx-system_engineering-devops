@@ -2,6 +2,9 @@
 # configure nginx redirection
 sudo apt-get update
 sudo apt-get -y install nginx
+sudo chown -R "$USER":"$USER" /var/www/html/
+sudo service nginx start
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
 sudo ufw allow 'Nginx HTTP'
 replace="rewrite \^\/redirect_me\$ https://www.google.com permanent;\n"
 sudo sed -i  "s~# pass.*~$replace~"  /etc/nginx/sites-enabled/default
