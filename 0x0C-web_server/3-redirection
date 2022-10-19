@@ -6,14 +6,12 @@ sudo chown -R "$USER":"$USER" /var/www/html/
 sudo service nginx start
 echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
 sudo ufw allow 'Nginx HTTP'
-printf "server {
-    listen 80;
+sudo chown -R "$USER":"$USER" /etc/nginx/
+echo "server {
+    listen 80;                    
     listen [::]:80 default_server;
-    root   /etc/nginx/html;
-    index  index.html index.htm;
-    location /redirect_me {
-        return 301 http://cuberule.com/;
-    }
+    root   /var/www/html;   
+    index  index.html index.htm index.nginx-debian.html;
+    rewrite ^/redirect_me\$ https://www.google.com permanent;                             
 }" > /etc/nginx/sites-available/default
-
-service nginx restart
+sudo service nginx restart
