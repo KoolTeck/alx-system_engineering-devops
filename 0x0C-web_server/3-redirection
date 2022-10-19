@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
 # configure nginx redirection
-apt-get update
-apt-get install -y nginx
-
-mkdir /etc/nginx/html
-touch /etc/nginx/html/index.html
-echo "Hello World!" > /etc/nginx/html/index.html
-printf %s "server {
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo chown -R "$USER":"$USER" /var/www/html/
+echo "Hello World!" | sudo tee /var/www/html/index.html
+sudo chown -R "$USER":"$USER" /etc/nginx/
+printf "server {
     listen 80;
     listen [::]:80 default_server;
-    root   /etc/nginx/html;
-    index  index.html index.htm;
+    root   /var/www/html/;
+    index  index.html index.htm index.nginx-debian.html;
+
     location /redirect_me {
-        return 301 http://cuberule.com/;
+        return 301 https://google.com/;
     }
 }" > /etc/nginx/sites-available/default
-
-service nginx restart
+sudo service nginx restart
