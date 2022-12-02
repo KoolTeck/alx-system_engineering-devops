@@ -19,4 +19,4 @@ def top_ten(subreddit):
     if subredit_resp:
         childrens = subredit_resp.get("children")
         [print(children.get('data').get('title')) for children in childrens]
-    return None
+    print(None)
