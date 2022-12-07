@@ -1,0 +1,31 @@
+server {
+    listen 80;
+    listen [::]:80 default_server;
+    root   /var/www/html/;
+    index  index.html index.htm index.nginx-debian.html 404.html;
+    server_name kooldev.tech www.kooldev.tech;
+
+    location / {
+    	add_header X-Served-By $hostname;
+    }
+
+    location /redirect_me {
+        return 301 https://google.com/;
+    }
+
+    error_page 404 /404.html;
+    location /404 {
+       root /usr/share/nginx/html;
+       internal;
+    }
+
+    location /hbnb_static/ {
+       alias /data/web_static/current/;
+    }
+
+    location /airbnb-onepage {
+       alias ~/AirBnB_clone_v2;
+       index  index.html index.htm;
+       proxy_pass http://0.0.0.0:5000;
+    }
+}
